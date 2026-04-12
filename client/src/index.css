@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -43,39 +45,39 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
+  --primary: #dd5126;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #dd5126;
+  --sidebar-primary-foreground: #ffffff;
+  --chart-1: #dd5126;
+  --chart-2: #dd5126;
+  --chart-3: #dd5126;
+  --chart-4: #dd5126;
+  --chart-5: #dd5126;
   --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --background: #ffffff;
+  --foreground: #3c3c3c;
+  --card: #ffffff;
+  --card-foreground: #3c3c3c;
+  --popover: #ffffff;
+  --popover-foreground: #3c3c3c;
+  --secondary: #939598;
+  --secondary-foreground: #111111;
+  --muted: #f5f5f5;
+  --muted-foreground: #939598;
+  --accent: #dd5126;
+  --accent-foreground: #ffffff;
+  --destructive: #dd5126;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #f5f5f5;
+  --ring: #dd5126;
+  --sidebar: #111111;
+  --sidebar-foreground: #ffffff;
+  --sidebar-accent: #dd5126;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #3c3c3c;
+  --sidebar-ring: #dd5126;
 }
 
 .dark {
@@ -117,8 +119,16 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    font-family: 'Alexandria', sans-serif;
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Alexandria', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alexandria', sans-serif;
+    font-weight: 700;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
