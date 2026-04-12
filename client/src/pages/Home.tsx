@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronRight, MapPin, Phone, Mail, Briefcase, Shield, Clock } from "lucide-react";
-import { useState } from "react";
+import { ChevronRight, MapPin, Phone, Mail, Briefcase, Shield, Clock, ChevronLeft } from "lucide-react";
+import { useState, useEffect } from "react";
 
 /**
  * Technyat Solutions - Building Construction Futures
@@ -14,6 +14,34 @@ import { useState } from "react";
 export default function Home() {
   const [activeService, setActiveService] = useState(0);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isAutoPlay]);
+
+  const goToTestimonial = (index: number) => {
+    setCurrentTestimonial(index);
+    setIsAutoPlay(false);
+    setTimeout(() => setIsAutoPlay(true), 10000);
+  };
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    setIsAutoPlay(false);
+    setTimeout(() => setIsAutoPlay(true), 10000);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setIsAutoPlay(false);
+    setTimeout(() => setIsAutoPlay(true), 10000);
+  };
 
   const services = [
     {
@@ -226,7 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - Slider */}
       <section className="py-20 bg-[#111111]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -235,21 +263,64 @@ export default function Home() {
               What Our Clients Say
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-8 bg-[#1a1a1a] border-[#3c3c3c]">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-[#dd5126]">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6 text-lg italic">"{testimonial.text}"</p>
-                <div>
-                  <p className="font-bold text-white">{testimonial.name}</p>
-                  <p className="text-[#dd5126] text-sm">{testimonial.role}</p>
-                </div>
-              </Card>
-            ))}
+          <div className="relative max-w-3xl mx-auto">
+            {/* Slider Container */}
+            <div className="relative overflow-hidden">
+              <div className="flex transition-all duration-500 ease-in-out" style={{
+                transform: `translateX(-${currentTestimonial * 100}%)`,
+              }}>
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="w-full flex-shrink-0">
+                    <Card className="p-8 md:p-12 bg-[#1a1a1a] border-[#3c3c3c] mx-auto">
+                      <div className="flex gap-1 mb-6">
+                        {[...Array(5)].map((_, i) => (
+                          <span key={i} className="text-[#dd5126] text-2xl">★</span>
+                        ))}
+                      </div>
+                      <p className="text-gray-300 mb-8 text-xl italic leading-relaxed">
+                        "{testimonial.text}"
+                      </p>
+                      <div>
+                        <p className="font-bold text-white text-lg">{testimonial.name}</p>
+                        <p className="text-[#dd5126] text-sm font-medium">{testimonial.role}</p>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevTestimonial}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 md:-translate-x-20 z-10 p-2 hover:bg-[#dd5126]/20 rounded-full transition-colors"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-8 h-8 text-[#dd5126]" />
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 md:translate-x-20 z-10 p-2 hover:bg-[#dd5126]/20 rounded-full transition-colors"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-8 h-8 text-[#dd5126]" />
+            </button>
+
+            {/* Dot Indicators */}
+            <div className="flex justify-center gap-3 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentTestimonial
+                      ? "bg-[#dd5126] w-8"
+                      : "bg-gray-600 hover:bg-gray-500"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
