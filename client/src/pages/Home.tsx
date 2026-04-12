@@ -15,33 +15,81 @@ export default function Home() {
   const [activeService, setActiveService] = useState(0);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isAutoPlayTestimonials, setIsAutoPlayTestimonials] = useState(true);
+  const [currentHero, setCurrentHero] = useState(0);
+  const [isAutoPlayHero, setIsAutoPlayHero] = useState(true);
 
+  // Hero carousel auto-play (3 seconds)
   useEffect(() => {
-    if (!isAutoPlay) return;
+    if (!isAutoPlayHero) return;
+    const interval = setInterval(() => {
+      setCurrentHero((prev) => (prev + 1) % heroSlides.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isAutoPlayHero]);
+
+  // Testimonials carousel auto-play (5 seconds)
+  useEffect(() => {
+    if (!isAutoPlayTestimonials) return;
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [isAutoPlay]);
+  }, [isAutoPlayTestimonials]);
+
+  const goToHero = (index: number) => {
+    setCurrentHero(index);
+    setIsAutoPlayHero(false);
+    setTimeout(() => setIsAutoPlayHero(true), 10000);
+  };
+
+  const nextHero = () => {
+    setCurrentHero((prev) => (prev + 1) % heroSlides.length);
+    setIsAutoPlayHero(false);
+    setTimeout(() => setIsAutoPlayHero(true), 10000);
+  };
+
+  const prevHero = () => {
+    setCurrentHero((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    setIsAutoPlayHero(false);
+    setTimeout(() => setIsAutoPlayHero(true), 10000);
+  };
 
   const goToTestimonial = (index: number) => {
     setCurrentTestimonial(index);
-    setIsAutoPlay(false);
-    setTimeout(() => setIsAutoPlay(true), 10000);
+    setIsAutoPlayTestimonials(false);
+    setTimeout(() => setIsAutoPlayTestimonials(true), 10000);
   };
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    setIsAutoPlay(false);
-    setTimeout(() => setIsAutoPlay(true), 10000);
+    setIsAutoPlayTestimonials(false);
+    setTimeout(() => setIsAutoPlayTestimonials(true), 10000);
   };
 
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    setIsAutoPlay(false);
-    setTimeout(() => setIsAutoPlay(true), 10000);
+    setIsAutoPlayTestimonials(false);
+    setTimeout(() => setIsAutoPlayTestimonials(true), 10000);
   };
+
+  const heroSlides = [
+    {
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/hero-carousel-1-6WmntX99BWJqfUwiRGJyDM.webp",
+      title: "Building Construction Futures",
+      description: "Expert construction solutions for residential, commercial, and industrial projects. Delivering excellence since day one.",
+    },
+    {
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/hero-carousel-2-EwGtXRw7hmjxdeYBLtfQa3.webp",
+      title: "Residential Excellence",
+      description: "Transform your dream home into reality with our expert residential construction and renovation services.",
+    },
+    {
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/hero-carousel-3-83Kjw7mbAVgezgDXLS8Y9w.webp",
+      title: "Commercial Expertise",
+      description: "Large-scale commercial projects delivered with precision, expertise, and unwavering commitment to quality.",
+    },
+  ];
 
   const services = [
     {
@@ -108,24 +156,37 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Carousel */}
       <section className="relative h-screen flex items-center overflow-hidden">
+        {/* Background Images Carousel */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/hero-construction-JAKYabortdCN96coWaUHjL.webp"
-            alt="Construction site"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="flex transition-all duration-500 ease-in-out h-full" style={{
+            transform: `translateX(-${currentHero * 100}%)`,
+          }}>
+            {heroSlides.map((slide, index) => (
+              <div key={index} className="w-full h-full flex-shrink-0 relative">
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40"></div>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Hero Content - Dynamic */}
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-2xl">
-            <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Building Construction Futures
-            </h2>
-            <p className="text-xl text-gray-100 mb-8">
-              Expert construction solutions for residential, commercial, and industrial projects. Delivering excellence since day one.
-            </p>
+            <div className="transition-all duration-500">
+              <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                {heroSlides[currentHero].title}
+              </h2>
+              <p className="text-xl text-gray-100 mb-8">
+                {heroSlides[currentHero].description}
+              </p>
+            </div>
             <div className="flex gap-4">
               <Button size="lg" className="bg-[#dd5126] hover:bg-[#c94520] text-white text-lg px-8">
                 Start Your Project
@@ -136,6 +197,39 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Hero Navigation Arrows */}
+        <button
+          onClick={prevHero}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-2 hover:bg-[#dd5126]/20 rounded-full transition-colors"
+          aria-label="Previous hero slide"
+        >
+          <ChevronLeft className="w-8 h-8 text-white" />
+        </button>
+        <button
+          onClick={nextHero}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-2 hover:bg-[#dd5126]/20 rounded-full transition-colors"
+          aria-label="Next hero slide"
+        >
+          <ChevronRight className="w-8 h-8 text-white" />
+        </button>
+
+        {/* Hero Dot Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center gap-3">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToHero(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentHero
+                  ? "bg-[#dd5126] w-8"
+                  : "bg-white/60 hover:bg-white"
+              }`}
+              aria-label={`Go to hero slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
         {/* Diagonal divider */}
         <svg className="absolute bottom-0 left-0 right-0 z-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="white"></path>
