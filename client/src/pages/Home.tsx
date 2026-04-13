@@ -85,7 +85,7 @@ export default function Home() {
       description: "Premium epoxy solutions for modern offices, retail spaces, and commercial facilities with superior durability and aesthetics.",
     },
     {
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/epoxy-flooring-hero-1-hBEXVhADP5wStzF4o3GpvS.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/epoxy-flooring-residential-garage-HKw9tdQpVoBKRjvibJHgeV.webp",
       title: "Residential & Industrial Epoxy Expertise",
       description: "From stunning residential garages to demanding industrial facilities, we provide flawless epoxy flooring installations.",
     },
@@ -205,7 +205,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <nav className="sticky top-0 z-50 bg-[#111111] border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img
@@ -215,10 +215,10 @@ export default function Home() {
             />
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-[#3c3c3c] hover:text-[#dd5126] transition-colors font-medium">About</a>
-            <a href="#services" className="text-[#3c3c3c] hover:text-[#dd5126] transition-colors font-medium">Services</a>
-            <a href="#portfolio" className="text-[#3c3c3c] hover:text-[#dd5126] transition-colors font-medium">Portfolio</a>
-            <a href="#contact" className="text-[#3c3c3c] hover:text-[#dd5126] transition-colors font-medium">Contact</a>
+            <a href="#about" className="text-white hover:text-[#dd5126] transition-colors font-medium">About</a>
+            <a href="#services" className="text-white hover:text-[#dd5126] transition-colors font-medium">Services</a>
+            <a href="#portfolio" className="text-white hover:text-[#dd5126] transition-colors font-medium">Portfolio</a>
+            <a href="#contact" className="text-white hover:text-[#dd5126] transition-colors font-medium">Contact</a>
           </div>
           <Button className="bg-[#dd5126] hover:bg-[#c94520] text-white">Get Quote</Button>
         </div>
