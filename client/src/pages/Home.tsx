@@ -85,7 +85,7 @@ export default function Home() {
       description: "Premium epoxy solutions for modern offices, retail spaces, and commercial facilities with superior durability and aesthetics.",
     },
     {
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/epoxy-flooring-hero-3-j3UU9WCi8ycdUdoTzXNswt.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/epoxy-flooring-hero-1-hBEXVhADP5wStzF4o3GpvS.webp",
       title: "Residential & Industrial Epoxy Expertise",
       description: "From stunning residential garages to demanding industrial facilities, we provide flawless epoxy flooring installations.",
     },
@@ -208,13 +208,11 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#dd5126] to-[#111111] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-[#111111]">Technyat</h1>
-              <p className="text-xs text-[#939598]">Solutions</p>
-            </div>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/technyat-logo_95dc072a.webp"
+              alt="Technyat Solutions"
+              className="h-12 w-auto"
+            />
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#about" className="text-[#3c3c3c] hover:text-[#dd5126] transition-colors font-medium">About</a>
