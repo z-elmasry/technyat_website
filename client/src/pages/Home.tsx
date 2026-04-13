@@ -121,6 +121,73 @@ export default function Home() {
     { name: "Michael Chen", role: "Developer", text: "Their expertise in project management saved us significant time and resources. Highly recommended for any construction project." },
   ];
 
+  const teamMembers = [
+    {
+      name: "Ahmed Hassan",
+      role: "Lead Engineer - Epoxy Flooring",
+      expertise: "Specialized in self-leveling epoxy and anti-static flooring systems",
+      experience: "15+ years in industrial projects across Egypt",
+    },
+    {
+      name: "Fatima Al-Mansouri",
+      role: "Project Manager",
+      expertise: "Large-scale industrial project coordination and execution",
+      experience: "12+ years managing projects exceeding 50,000 sq meters",
+    },
+    {
+      name: "Mohamed Karim",
+      role: "Technical Specialist - Insulation Systems",
+      expertise: "Thermal and water insulation, tank isolation, and specialized coatings",
+      experience: "10+ years in food and chemical industry projects",
+    },
+    {
+      name: "Layla Ibrahim",
+      role: "Quality Assurance Lead",
+      expertise: "High chemical resistance flooring and sterilization room finishing",
+      experience: "8+ years ensuring excellence in demanding environments",
+    },
+  ];
+
+  const leadership = {
+    founder: "Omar",
+    title: "Founder & General Manager",
+    background: "With extensive experience in construction techniques, epoxy flooring, concrete finishing, and insulation systems, Omar has led and supervised large-scale industrial projects across Egypt.",
+    achievements: [
+      "Successfully executed projects exceeding tens of thousands of square meters in industrial flooring and coating",
+      "Contractual supplier for major international companies including Mondelez",
+      "Specialized expertise in sterilization rooms, tank insulation, and high chemical resistance flooring",
+      "Built a family-driven team combining traditional expertise with modern execution",
+    ],
+    vision: "Our vision is to deliver exceptional quality, reliability, and long-term client relationships through continuous improvement in techniques and materials to meet modern industrial standards.",
+  };
+
+  const clients = {
+    industries: [
+      { name: "Food & Beverage", examples: "Chocolate, biscuits, sugar, and oil factories" },
+      { name: "Manufacturing", examples: "Industrial production facilities and warehouses" },
+      { name: "Infrastructure", examples: "Construction and commercial development" },
+    ],
+    locations: [
+      "10th of Ramadan",
+      "6th of October",
+      "Port Said",
+      "Alexandria",
+      "El Obour",
+      "Badr City",
+      "Assiut",
+      "Ain Sokhna",
+    ],
+    specializations: [
+      "Epoxy flooring (self-leveling, anti-static, high resistance)",
+      "Concrete finishing (helicopter finishing)",
+      "Thermal and water insulation",
+      "Tank and roof isolation",
+      "Specialized environments (sterilization rooms)",
+    ],
+    notablePartners: ["Mondelez"],
+    projectScale: "70,000+ square meters",
+  };
+
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -344,6 +411,142 @@ export default function Home() {
             <Button variant="outline" className="border-[#dd5126] text-[#dd5126] hover:bg-[#dd5126] hover:text-white">
               View All Projects <ChevronRight className="ml-2 w-4 h-4" />
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-sm font-bold text-[#dd5126] uppercase tracking-widest mb-4">Leadership</h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#111111]">
+              Visionary Leadership
+            </h2>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Card className="p-12 border-0 shadow-lg bg-gradient-to-br from-gray-50 to-white">
+              <div className="mb-8">
+                <h3 className="text-3xl font-bold text-[#dd5126] mb-2">{leadership.founder}</h3>
+                <p className="text-lg font-semibold text-[#3c3c3c]">{leadership.title}</p>
+              </div>
+              <p className="text-lg text-[#939598] mb-8 leading-relaxed">
+                {leadership.background}
+              </p>
+              <div className="mb-8">
+                <h4 className="text-xl font-bold text-[#111111] mb-4">Key Achievements</h4>
+                <ul className="space-y-3">
+                  {leadership.achievements.map((achievement, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-[#dd5126] rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-[#3c3c3c]">{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-6 bg-[#dd5126]/10 rounded-lg border-l-4 border-[#dd5126]">
+                <p className="text-[#111111] font-semibold italic">
+                  "{leadership.vision}"
+                </p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section id="team" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-sm font-bold text-[#dd5126] uppercase tracking-widest mb-4">Our Team</h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#111111]">
+              Expert Professionals
+            </h2>
+            <p className="text-lg text-[#939598] mt-4 max-w-2xl mx-auto">
+              Our team combines decades of experience in industrial construction, epoxy flooring, and specialized finishing systems.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <Card key={index} className="p-8 border-0 hover:shadow-xl transition-all duration-300 bg-white">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#dd5126] to-[#111111] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-lg">{member.name.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#111111]">{member.name}</h3>
+                    <p className="text-sm font-semibold text-[#dd5126]">{member.role}</p>
+                  </div>
+                </div>
+                <p className="text-[#3c3c3c] mb-3">{member.expertise}</p>
+                <p className="text-sm text-[#939598] flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-[#dd5126] rounded-full"></span>
+                  {member.experience}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section id="clients" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-sm font-bold text-[#dd5126] uppercase tracking-widest mb-4">Our Clients</h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#111111]">
+              Industries We Serve
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {clients.industries.map((industry, index) => (
+              <Card key={index} className="p-8 border-0 hover:shadow-lg transition-all duration-300 bg-gray-50">
+                <h3 className="text-2xl font-bold text-[#dd5126] mb-3">{industry.name}</h3>
+                <p className="text-[#3c3c3c]">{industry.examples}</p>
+              </Card>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h3 className="text-2xl font-bold text-[#111111] mb-6">Geographic Reach</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {clients.locations.map((location, index) => (
+                  <div key={index} className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+                    <MapPin className="w-5 h-5 text-[#dd5126] flex-shrink-0" />
+                    <span className="text-[#3c3c3c] font-medium">{location}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-[#111111] mb-6">Specializations</h3>
+              <ul className="space-y-3">
+                {clients.specializations.map((spec, index) => (
+                  <li key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="w-2 h-2 bg-[#dd5126] rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-[#3c3c3c]">{spec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-[#dd5126]/10 to-[#111111]/5 rounded-lg p-8 border-l-4 border-[#dd5126]">
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <p className="text-4xl font-bold text-[#dd5126] mb-2">70K+</p>
+                <p className="text-[#3c3c3c] font-semibold">Square Meters Completed</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-[#dd5126] mb-2">Multiple</p>
+                <p className="text-[#3c3c3c] font-semibold">Industries Served</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-[#dd5126] mb-2">Mondelez</p>
+                <p className="text-[#3c3c3c] font-semibold">International Partner</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
