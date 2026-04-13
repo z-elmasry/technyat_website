@@ -247,21 +247,21 @@ export default function Home() {
         </div>
 
         {/* Hero Content - Dynamic */}
-        <div className="relative z-10 container mx-auto px-4">
-          <div className="max-w-2xl">
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
+          <div className="max-w-2xl w-full">
             <div className="transition-all duration-500">
-              <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
                 {heroSlides[currentHero].title}
               </h2>
-              <p className="text-xl text-gray-100 mb-8">
+              <p className="text-lg md:text-xl text-gray-100 mb-6 md:mb-8 max-w-xl">
                 {heroSlides[currentHero].description}
               </p>
             </div>
-            <div className="flex gap-4">
-              <Button size="lg" className="bg-[#dd5126] hover:bg-[#c94520] text-white text-lg px-8">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <Button size="lg" className="bg-[#dd5126] hover:bg-[#c94520] text-white text-base md:text-lg px-6 md:px-8 py-2 md:py-3">
                 Start Your Project
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-base md:text-lg px-6 md:px-8 py-2 md:py-3">
                 Learn More
               </Button>
             </div>
@@ -271,29 +271,29 @@ export default function Home() {
         {/* Hero Navigation Arrows */}
         <button
           onClick={prevHero}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-2 hover:bg-[#dd5126]/20 rounded-full transition-colors"
+          className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 hover:bg-[#dd5126]/30 rounded-full transition-colors"
           aria-label="Previous hero slide"
         >
-          <ChevronLeft className="w-8 h-8 text-white" />
+          <ChevronLeft className="w-6 md:w-8 h-6 md:h-8 text-white" />
         </button>
         <button
           onClick={nextHero}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-2 hover:bg-[#dd5126]/20 rounded-full transition-colors"
+          className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 hover:bg-[#dd5126]/30 rounded-full transition-colors"
           aria-label="Next hero slide"
         >
-          <ChevronRight className="w-8 h-8 text-white" />
+          <ChevronRight className="w-6 md:w-8 h-6 md:h-8 text-white" />
         </button>
 
         {/* Hero Dot Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center gap-3">
+        <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center gap-2 md:gap-3">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToHero(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`rounded-full transition-all duration-300 ${
                 index === currentHero
-                  ? "bg-[#dd5126] w-8"
-                  : "bg-white/60 hover:bg-white"
+                  ? "bg-[#dd5126] w-6 md:w-8 h-2 md:h-3"
+                  : "bg-white/60 hover:bg-white w-2 md:w-3 h-2 md:h-3"
               }`}
               aria-label={`Go to hero slide ${index + 1}`}
             />
@@ -301,7 +301,7 @@ export default function Home() {
         </div>
 
         {/* Diagonal divider */}
-        <svg className="absolute bottom-0 left-0 right-0 z-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg className="absolute bottom-0 left-0 right-0 z-20 w-full" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{height: '60px'}}>
           <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="white"></path>
         </svg>
       </section>
@@ -430,35 +430,37 @@ export default function Home() {
               Meet Our Founder
             </h2>
           </div>
-          <div className="max-w-5xl mx-auto">
-            <Card className="p-12 border-0 shadow-lg bg-gradient-to-br from-gray-50 to-white">
-              <div className="grid md:grid-cols-3 gap-12 items-center">
-                <div className="md:col-span-1 flex justify-center">
-                  <img
-                    src={leadership.image}
-                    alt={leadership.founder}
-                    className="w-64 h-64 rounded-lg shadow-lg object-cover"
-                  />
+          <div className="max-w-6xl mx-auto">
+            <Card className="p-8 md:p-12 border-0 shadow-lg bg-gradient-to-br from-gray-50 to-white">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+                <div className="flex justify-center md:justify-start">
+                  <div className="w-full max-w-sm">
+                    <img
+                      src={leadership.image}
+                      alt={leadership.founder}
+                      className="w-full rounded-lg shadow-lg object-cover"
+                    />
+                  </div>
                 </div>
-                <div className="md:col-span-2">
-                  <h3 className="text-4xl font-bold text-[#dd5126] mb-2">{leadership.founder}</h3>
-                  <p className="text-xl font-semibold text-[#3c3c3c] mb-6">{leadership.title}</p>
-                  <p className="text-lg text-[#939598] mb-8 leading-relaxed">
+                <div className="w-full">
+                  <h3 className="text-3xl md:text-4xl font-bold text-[#dd5126] mb-2">{leadership.founder}</h3>
+                  <p className="text-lg md:text-xl font-semibold text-[#3c3c3c] mb-6">{leadership.title}</p>
+                  <p className="text-base md:text-lg text-[#939598] mb-8 leading-relaxed">
                     {leadership.background}
                   </p>
                   <div className="mb-8">
-                    <h4 className="text-xl font-bold text-[#111111] mb-4">Key Achievements</h4>
-                    <ul className="space-y-3">
+                    <h4 className="text-lg md:text-xl font-bold text-[#111111] mb-4">Key Achievements</h4>
+                    <ul className="space-y-2 md:space-y-3">
                       {leadership.achievements.map((achievement, index) => (
                         <li key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-[#dd5126] rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-[#3c3c3c]">{achievement}</span>
+                          <div className="w-2 h-2 bg-[#dd5126] rounded-full mt-1 flex-shrink-0"></div>
+                          <span className="text-sm md:text-base text-[#3c3c3c]">{achievement}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="p-6 bg-[#dd5126]/10 rounded-lg border-l-4 border-[#dd5126]">
-                    <p className="text-[#111111] font-semibold italic">
+                  <div className="p-4 md:p-6 bg-[#dd5126]/10 rounded-lg border-l-4 border-[#dd5126]">
+                    <p className="text-sm md:text-base text-[#111111] font-semibold italic">
                       "{leadership.vision}"
                     </p>
                   </div>
