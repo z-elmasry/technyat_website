@@ -75,37 +75,37 @@ export default function Home() {
 
   const heroSlides = [
     {
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/hero-carousel-1-6WmntX99BWJqfUwiRGJyDM.webp",
-      title: "Building Construction Futures",
-      description: "Expert construction solutions for residential, commercial, and industrial projects. Delivering excellence since day one.",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/epoxy-flooring-hero-1-hBEXVhADP5wStzF4o3GpvS.webp",
+      title: "Specialists in Epoxy Flooring Solutions for All Sectors",
+      description: "We deliver high-quality, durable, and modern epoxy flooring for industrial, commercial, and residential projects.",
     },
     {
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/hero-carousel-2-EwGtXRw7hmjxdeYBLtfQa3.webp",
-      title: "Residential Excellence",
-      description: "Transform your dream home into reality with our expert residential construction and renovation services.",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/epoxy-flooring-hero-2-hX2PnYR47Stgvyt6gb5J7q.webp",
+      title: "Commercial Epoxy Flooring Excellence",
+      description: "Premium epoxy solutions for modern offices, retail spaces, and commercial facilities with superior durability and aesthetics.",
     },
     {
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/hero-carousel-3-83Kjw7mbAVgezgDXLS8Y9w.webp",
-      title: "Commercial Expertise",
-      description: "Large-scale commercial projects delivered with precision, expertise, and unwavering commitment to quality.",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/epoxy-flooring-hero-3-j3UU9WCi8ycdUdoTzXNswt.webp",
+      title: "Residential & Industrial Epoxy Expertise",
+      description: "From stunning residential garages to demanding industrial facilities, we provide flawless epoxy flooring installations.",
     },
   ];
 
   const services = [
     {
       icon: Briefcase,
-      title: "General Construction",
-      description: "Comprehensive construction solutions for residential, commercial, and industrial projects with expert project management.",
+      title: "Industrial Epoxy Flooring",
+      description: "Heavy-duty epoxy solutions for factories, warehouses, and production facilities with superior chemical and abrasion resistance.",
     },
     {
       icon: Shield,
-      title: "Project Management",
-      description: "Professional oversight and coordination ensuring projects stay on schedule and within budget constraints.",
+      title: "Commercial Epoxy Systems",
+      description: "Premium epoxy flooring for offices, retail spaces, and commercial facilities with modern aesthetics and durability.",
     },
     {
       icon: Clock,
-      title: "Renovation & Remodeling",
-      description: "Transform existing spaces with modern updates and sustainable construction practices.",
+      title: "Residential Epoxy Solutions",
+      description: "Decorative and functional epoxy flooring for garages, basements, and living spaces with custom designs.",
     },
   ];
 
@@ -125,47 +125,49 @@ export default function Home() {
     {
       name: "Ahmed Hassan",
       role: "Lead Engineer - Epoxy Flooring",
-      expertise: "Specialized in self-leveling epoxy and anti-static flooring systems",
-      experience: "15+ years in industrial projects across Egypt",
+      expertise: "Expert in self-leveling epoxy, anti-static systems, and industrial-grade coatings",
+      experience: "15+ years specializing in epoxy flooring across Egypt",
     },
     {
       name: "Fatima Al-Mansouri",
       role: "Project Manager",
-      expertise: "Large-scale industrial project coordination and execution",
-      experience: "12+ years managing projects exceeding 50,000 sq meters",
+      expertise: "Large-scale epoxy flooring project coordination and execution",
+      experience: "12+ years managing 50,000+ sq meter epoxy installations",
     },
     {
       name: "Mohamed Karim",
-      role: "Technical Specialist - Insulation Systems",
-      expertise: "Thermal and water insulation, tank isolation, and specialized coatings",
-      experience: "10+ years in food and chemical industry projects",
+      role: "Technical Specialist - Epoxy Systems",
+      expertise: "Chemical-resistant epoxy, food-grade systems, and specialized coatings",
+      experience: "10+ years in food and chemical industry epoxy projects",
     },
     {
       name: "Layla Ibrahim",
       role: "Quality Assurance Lead",
-      expertise: "High chemical resistance flooring and sterilization room finishing",
-      experience: "8+ years ensuring excellence in demanding environments",
+      expertise: "Premium epoxy finishing, durability testing, and quality control",
+      experience: "8+ years ensuring excellence in industrial epoxy applications",
     },
   ];
 
   const leadership = {
     founder: "Omar",
     title: "Founder & General Manager",
-    background: "With extensive experience in construction techniques, epoxy flooring, concrete finishing, and insulation systems, Omar has led and supervised large-scale industrial projects across Egypt.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/omar-profile-BWeyGTnj3WwVwXWtQ9jegc.webp",
+    background: "With extensive experience in construction techniques, epoxy flooring, concrete finishing, and insulation systems, Omar has led and supervised large-scale industrial projects across Egypt. His expertise spans industrial, commercial, and residential epoxy flooring applications, delivering solutions that combine durability, aesthetics, and performance.",
     achievements: [
-      "Successfully executed projects exceeding tens of thousands of square meters in industrial flooring and coating",
+      "Successfully executed projects exceeding tens of thousands of square meters in epoxy flooring and industrial coatings",
       "Contractual supplier for major international companies including Mondelez",
-      "Specialized expertise in sterilization rooms, tank insulation, and high chemical resistance flooring",
-      "Built a family-driven team combining traditional expertise with modern execution",
+      "Specialized expertise in high-performance epoxy systems, anti-static flooring, and chemical-resistant solutions",
+      "Built a family-driven team combining traditional expertise with modern execution and innovation",
+      "Established reputation for delivering premium epoxy flooring solutions across Egypt's industrial zones",
     ],
-    vision: "Our vision is to deliver exceptional quality, reliability, and long-term client relationships through continuous improvement in techniques and materials to meet modern industrial standards.",
+    vision: "Our vision is to be the leading epoxy flooring specialist in Egypt, delivering exceptional quality, reliability, and long-term client relationships through continuous improvement in techniques and materials to meet modern industrial and commercial standards.",
   };
 
   const clients = {
     industries: [
-      { name: "Food & Beverage", examples: "Chocolate, biscuits, sugar, and oil factories" },
-      { name: "Manufacturing", examples: "Industrial production facilities and warehouses" },
-      { name: "Infrastructure", examples: "Construction and commercial development" },
+      { name: "Food & Beverage", examples: "Chocolate, biscuits, sugar, and oil factories with specialized epoxy systems" },
+      { name: "Manufacturing & Industrial", examples: "Production facilities and warehouses requiring high-performance epoxy flooring" },
+      { name: "Commercial & Retail", examples: "Modern offices, showrooms, and commercial spaces with premium epoxy solutions" },
     ],
     locations: [
       "10th of Ramadan",
@@ -178,14 +180,15 @@ export default function Home() {
       "Ain Sokhna",
     ],
     specializations: [
-      "Epoxy flooring (self-leveling, anti-static, high resistance)",
-      "Concrete finishing (helicopter finishing)",
-      "Thermal and water insulation",
-      "Tank and roof isolation",
-      "Specialized environments (sterilization rooms)",
+      "Self-leveling epoxy flooring systems",
+      "Anti-static and conductive epoxy coatings",
+      "High chemical resistance epoxy solutions",
+      "Decorative epoxy flooring with custom designs",
+      "Industrial-grade epoxy with superior durability",
+      "Food-grade and pharmaceutical-compliant epoxy systems",
     ],
-    notablePartners: ["Mondelez"],
-    projectScale: "70,000+ square meters",
+    notablePartners: ["Mondelez", "Leading industrial manufacturers across Egypt"],
+    projectScale: "70,000+ square meters of epoxy flooring",
   };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -310,26 +313,26 @@ export default function Home() {
             <div>
               <h3 className="text-sm font-bold text-[#dd5126] uppercase tracking-widest mb-4">About Us</h3>
               <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-6">
-                Trusted Construction Partner
+                Epoxy Flooring Specialists
               </h2>
               <p className="text-lg text-[#3c3c3c] mb-6">
-                With over a decade of experience in the construction industry, Technyat Solutions has established itself as a leader in delivering high-quality projects on time and within budget.
+                Technyat Solutions is Egypt's trusted leader in epoxy flooring solutions. With years of specialized expertise, we deliver high-quality, durable epoxy flooring systems for industrial, commercial, and residential applications.
               </p>
               <p className="text-lg text-[#939598] mb-8">
-                Our team of skilled professionals combines technical expertise with innovative problem-solving to bring your vision to life.
+                Our team combines technical excellence with innovative problem-solving to create flooring solutions that exceed expectations and stand the test of time.
               </p>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-[#dd5126] rounded-full"></div>
-                  <span className="text-[#3c3c3c]">500+ Completed Projects</span>
+                  <span className="text-[#3c3c3c]">70,000+ Square Meters of Epoxy Flooring Installed</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-[#dd5126] rounded-full"></div>
-                  <span className="text-[#3c3c3c]">98% Client Satisfaction</span>
+                  <span className="text-[#3c3c3c]">98% Client Satisfaction Rate</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-[#dd5126] rounded-full"></div>
-                  <span className="text-[#3c3c3c]">Award-Winning Team</span>
+                  <span className="text-[#3c3c3c]">Certified Epoxy Flooring Specialists</span>
                 </li>
               </ul>
               <Button className="bg-[#dd5126] hover:bg-[#c94520] text-white">
@@ -354,8 +357,11 @@ export default function Home() {
           <div className="text-center mb-16">
             <h3 className="text-sm font-bold text-[#dd5126] uppercase tracking-widest mb-4">Our Services</h3>
             <h2 className="text-4xl md:text-5xl font-bold text-[#111111]">
-              Comprehensive Construction Solutions
+              Epoxy Flooring Solutions
             </h2>
+            <p className="text-lg text-[#939598] mt-4 max-w-2xl mx-auto">
+              Specialized epoxy flooring systems for every sector and application
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => {
@@ -421,33 +427,42 @@ export default function Home() {
           <div className="text-center mb-16">
             <h3 className="text-sm font-bold text-[#dd5126] uppercase tracking-widest mb-4">Leadership</h3>
             <h2 className="text-4xl md:text-5xl font-bold text-[#111111]">
-              Visionary Leadership
+              Meet Our Founder
             </h2>
           </div>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <Card className="p-12 border-0 shadow-lg bg-gradient-to-br from-gray-50 to-white">
-              <div className="mb-8">
-                <h3 className="text-3xl font-bold text-[#dd5126] mb-2">{leadership.founder}</h3>
-                <p className="text-lg font-semibold text-[#3c3c3c]">{leadership.title}</p>
-              </div>
-              <p className="text-lg text-[#939598] mb-8 leading-relaxed">
-                {leadership.background}
-              </p>
-              <div className="mb-8">
-                <h4 className="text-xl font-bold text-[#111111] mb-4">Key Achievements</h4>
-                <ul className="space-y-3">
-                  {leadership.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-[#dd5126] rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-[#3c3c3c]">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="p-6 bg-[#dd5126]/10 rounded-lg border-l-4 border-[#dd5126]">
-                <p className="text-[#111111] font-semibold italic">
-                  "{leadership.vision}"
-                </p>
+              <div className="grid md:grid-cols-3 gap-12 items-center">
+                <div className="md:col-span-1 flex justify-center">
+                  <img
+                    src={leadership.image}
+                    alt={leadership.founder}
+                    className="w-64 h-64 rounded-lg shadow-lg object-cover"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <h3 className="text-4xl font-bold text-[#dd5126] mb-2">{leadership.founder}</h3>
+                  <p className="text-xl font-semibold text-[#3c3c3c] mb-6">{leadership.title}</p>
+                  <p className="text-lg text-[#939598] mb-8 leading-relaxed">
+                    {leadership.background}
+                  </p>
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-[#111111] mb-4">Key Achievements</h4>
+                    <ul className="space-y-3">
+                      {leadership.achievements.map((achievement, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-[#dd5126] rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-[#3c3c3c]">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="p-6 bg-[#dd5126]/10 rounded-lg border-l-4 border-[#dd5126]">
+                    <p className="text-[#111111] font-semibold italic">
+                      "{leadership.vision}"
+                    </p>
+                  </div>
+                </div>
               </div>
             </Card>
           </div>
