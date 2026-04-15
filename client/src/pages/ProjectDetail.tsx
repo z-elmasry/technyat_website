@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronLeft, MapPin, Calendar, DollarSign, CheckCircle } from "lucide-react";
+import { ChevronLeft, MapPin, Calendar, DollarSign, CheckCircle, ChevronRight } from "lucide-react";
 import { useRoute } from "wouter";
+import { useState } from "react";
 
 interface ProjectData {
   id: string;
   title: string;
   image: string;
+  gallery: string[];
   location: string;
   duration: string;
   budget: string;
@@ -24,6 +26,11 @@ const projects: Record<string, ProjectData> = {
     id: "mondelez-factory",
     title: "Mondelez Food Factory - Industrial Epoxy Flooring",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/project-mondelez-factory-cxahndYGJBHEakxdctwDpN.webp",
+    gallery: [
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/mondelez-project-1-nCCHqdjkJktnBq6ma9DAWL.webp",
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/mondelez-project-2-SzxcrDamGMfMa59iQQyVHq.webp",
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/mondelez-project-3-aWGQYYSQSYZTpH4RGoYriq.webp",
+    ],
     location: "10th of Ramadan City, Egypt",
     duration: "8 weeks",
     budget: "EGP 450,000 - 550,000",
@@ -47,6 +54,11 @@ const projects: Record<string, ProjectData> = {
     id: "warehouse-flooring",
     title: "Commercial Warehouse - Anti-Slip Epoxy System",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/project-warehouse-flooring-iCbmDrY5MssuFhmcoG5pbd.webp",
+    gallery: [
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/warehouse-project-1-f6Yz6XqmYviPpsqNuMpDt4.webp",
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/warehouse-project-2-WUudyXFi8DV2seCXMtvbtU.webp",
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/warehouse-project-3-oE7S6wktxYyHfan6wdhBCq.webp",
+    ],
     location: "6th of October City, Egypt",
     duration: "6 weeks",
     budget: "EGP 320,000 - 400,000",
@@ -70,6 +82,11 @@ const projects: Record<string, ProjectData> = {
     id: "chemical-plant",
     title: "Chemical Plant - Specialized Resistant Coating",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/project-chemical-plant-X9dp4ouX7TXKKbomamkbKd.webp",
+    gallery: [
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/chemical-project-1-8u5yFosJDwjSqfxwRRRi4F.webp",
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/chemical-project-2-P7G6u2TQbx96AoNxQJEkRr.webp",
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/chemical-project-3-B3Rab87Hv4QYcQa9tnmSqQ.webp",
+    ],
     location: "Port Said, Egypt",
     duration: "10 weeks",
     budget: "EGP 600,000 - 750,000",
@@ -90,6 +107,62 @@ const projects: Record<string, ProjectData> = {
     testimonialRole: "Plant Manager, Pharmaceutical Division",
   },
 };
+
+function ImageGallerySlider({ images }: { images: string[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  return (
+    <div className="relative w-full h-96 md:h-[500px] overflow-hidden rounded-lg group">
+      <div className="relative w-full h-full">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-500 ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img src={image} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover" />
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Buttons */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      {/* Dot Indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === currentIndex ? "bg-[#dd5126] w-8" : "bg-white/50 hover:bg-white"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function ProjectDetail() {
   const [match, params] = useRoute("/project/:id");
@@ -128,20 +201,12 @@ export default function ProjectDetail() {
         </div>
       </nav>
 
-      {/* Hero Image */}
-      <div className="relative h-96 md:h-[500px] overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute inset-0 flex items-end">
-          <div className="container mx-auto px-4 pb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{project.title}</h1>
-          </div>
+      {/* Gallery Slider */}
+      <section className="py-8">
+        <div className="container mx-auto px-4">
+          <ImageGallerySlider images={project.gallery} />
         </div>
-      </div>
+      </section>
 
       {/* Project Details */}
       <section className="py-16 bg-white">
@@ -184,6 +249,11 @@ export default function ProjectDetail() {
                 </div>
               </div>
             </Card>
+          </div>
+
+          {/* Title */}
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">{project.title}</h1>
           </div>
 
           {/* Description */}
