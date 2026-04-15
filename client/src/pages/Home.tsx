@@ -110,9 +110,9 @@ export default function Home() {
   ];
 
   const portfolio = [
-    { title: "Modern Office Complex", category: "Commercial", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/portfolio-bg-DXgyXXKYEunNobR8S5yi3u.webp" },
-    { title: "Residential Development", category: "Residential", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/portfolio-bg-DXgyXXKYEunNobR8S5yi3u.webp" },
-    { title: "Industrial Facility", category: "Industrial", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/portfolio-bg-DXgyXXKYEunNobR8S5yi3u.webp" },
+    { id: "mondelez-factory", title: "Mondelez Food Factory", category: "Industrial", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/project-mondelez-factory-cxahndYGJBHEakxdctwDpN.webp" },
+    { id: "warehouse-flooring", title: "Commercial Warehouse", category: "Commercial", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/project-warehouse-flooring-iCbmDrY5MssuFhmcoG5pbd.webp" },
+    { id: "chemical-plant", title: "Chemical Plant Facility", category: "Industrial", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/project-chemical-plant-X9dp4ouX7TXKKbomamkbKd.webp" },
   ];
 
   const testimonials = [
@@ -396,7 +396,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {portfolio.map((project, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-lg h-64 cursor-pointer">
+              <a key={index} href={`/project/${project.id}`} className="group relative overflow-hidden rounded-lg h-64 cursor-pointer block">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -405,10 +405,10 @@ export default function Home() {
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300 flex items-end p-6">
                   <div className="text-white">
                     <p className="text-sm text-gray-300 mb-2">{project.category}</p>
-                    <h4 className="text-2xl font-bold">{project.title}</h4>
+                    <h4 className="text-2xl font-bold group-hover:text-[#dd5126] transition-colors">{project.title}</h4>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
           <div className="text-center mt-12">
