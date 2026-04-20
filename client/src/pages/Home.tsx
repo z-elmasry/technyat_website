@@ -107,16 +107,19 @@ export default function Home() {
 
   const services = [
     {
+      id: "industrial",
       icon: Briefcase,
       title: "Industrial Epoxy Flooring",
       description: "Heavy-duty epoxy solutions for factories, warehouses, and production facilities with superior chemical and abrasion resistance.",
     },
     {
+      id: "commercial",
       icon: Shield,
       title: "Commercial Epoxy Systems",
       description: "Premium epoxy flooring for offices, retail spaces, and commercial facilities with modern aesthetics and durability.",
     },
     {
+      id: "residential",
       icon: Clock,
       title: "Residential Epoxy Solutions",
       description: "Decorative and functional epoxy flooring for garages, basements, and living spaces with custom designs.",
@@ -389,7 +392,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-2xl font-bold text-[#111111] mb-4">{service.title}</h3>
                   <p className="text-[#939598] mb-6">{service.description}</p>
-                  <a href="#" className="inline-flex items-center text-[#dd5126] font-semibold hover:gap-2 transition-all">
+                  <a href={`/service/${service.id}`} className="inline-flex items-center text-[#dd5126] font-semibold hover:gap-2 transition-all">
                     Learn More <ChevronRight className="w-4 h-4 ml-1" />
                   </a>
                 </Card>
