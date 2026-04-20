@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronRight, MapPin, Phone, Mail, Briefcase, Shield, Clock, ChevronLeft } from "lucide-react";
+import { ChevronRight, MapPin, Phone, Mail, Briefcase, Shield, Clock, ChevronLeft, ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 /**
@@ -18,6 +18,20 @@ export default function Home() {
   const [isAutoPlayTestimonials, setIsAutoPlayTestimonials] = useState(true);
   const [currentHero, setCurrentHero] = useState(0);
   const [isAutoPlayHero, setIsAutoPlayHero] = useState(true);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Scroll to top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   // Hero carousel auto-play (3 seconds)
   useEffect(() => {
@@ -637,6 +651,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Awards & Achievements Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-sm font-bold text-[#dd5126] uppercase tracking-widest mb-4">Award Winning</h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#111111]">
+              Our Awards & Achievements
+            </h2>
+            <p className="text-lg text-[#939598] mt-4 max-w-2xl mx-auto">
+              Recognized for excellence in epoxy flooring solutions and industrial construction across Egypt.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 text-center bg-white">
+              <div className="mb-6">
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#dd5126] to-[#111111] rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-3xl">ISO</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-[#111111] mb-2">ISO 9001:2015</h3>
+              <p className="text-[#939598] mb-4">Quality Management System Certified</p>
+              <p className="text-sm text-[#3c3c3c]">2023</p>
+            </Card>
+            <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 text-center bg-white">
+              <div className="mb-6">
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#dd5126] to-[#111111] rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-3xl">★</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-[#111111] mb-2">Industry Excellence</h3>
+              <p className="text-[#939598] mb-4">Best Epoxy Flooring Contractor Award</p>
+              <p className="text-sm text-[#3c3c3c]">2024</p>
+            </Card>
+            <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 text-center bg-white">
+              <div className="mb-6">
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#dd5126] to-[#111111] rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-3xl">✓</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-[#111111] mb-2">Safety Certified</h3>
+              <p className="text-[#939598] mb-4">OSHA Health & Safety Standards</p>
+              <p className="text-sm text-[#3c3c3c]">2024</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -733,6 +794,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-40 w-12 h-12 bg-[#dd5126] hover:bg-[#c94520] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
 
       {/* Footer */}
       <footer className="bg-[#111111] text-white py-12">
