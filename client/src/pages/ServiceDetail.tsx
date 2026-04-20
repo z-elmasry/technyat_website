@@ -20,17 +20,17 @@ export default function ServiceDetail() {
   // Client logos slider auto-play (5 seconds)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentLogoSlide((prev) => (prev + 1) % Math.ceil(clientLogos.length / 4));
+      setCurrentLogoSlide((prev) => (prev + 1) % Math.ceil(clientLogos.length / 3));
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   const nextLogoSlide = () => {
-    setCurrentLogoSlide((prev) => (prev + 1) % Math.ceil(clientLogos.length / 4));
+    setCurrentLogoSlide((prev) => (prev + 1) % Math.ceil(clientLogos.length / 3));
   };
 
   const prevLogoSlide = () => {
-    setCurrentLogoSlide((prev) => (prev - 1 + Math.ceil(clientLogos.length / 4)) % Math.ceil(clientLogos.length / 4));
+    setCurrentLogoSlide((prev) => (prev - 1 + Math.ceil(clientLogos.length / 3)) % Math.ceil(clientLogos.length / 3));
   };
 
   const clientLogos = [
@@ -53,6 +53,14 @@ export default function ServiceDetail() {
     {
       name: "Mars Incorporated",
       logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/client-logo-mars-ZtkNETQaFHesPV6eayqWxA.webp",
+    },
+    {
+      name: "Unilever",
+      logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/client-logo-unilever-4k5rV5tiYPMbXrAjL2uvuV.webp",
+    },
+    {
+      name: "Reckitt Benckiser",
+      logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663545630865/bQnD4oR8mRhyTLpPGdD4Vw/client-logo-reckitt-A92VEtvjh7RnFbyGU6pTgj.webp",
     },
   ];
 
@@ -236,9 +244,9 @@ export default function ServiceDetail() {
             {/* Slider Container */}
             <div className="overflow-hidden bg-gray-50 rounded-lg p-8">
               <div className="flex gap-6 transition-transform duration-500" style={{ transform: `translateX(-${currentLogoSlide * 100}%)` }}>
-                {Array.from({ length: Math.ceil(clientLogos.length / 4) }).map((_, slideIndex) => (
+                {Array.from({ length: Math.ceil(clientLogos.length / 3) }).map((_, slideIndex) => (
                   <div key={slideIndex} className="flex gap-6 min-w-full">
-                    {clientLogos.slice(slideIndex * 4, slideIndex * 4 + 4).map((client, index) => (
+                    {clientLogos.slice(slideIndex * 3, slideIndex * 3 + 3).map((client, index) => (
                       <div key={index} className="flex-1 flex items-center justify-center bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-all duration-300">
                         <img src={client.logo} alt={client.name} className="max-h-24 max-w-full object-contain" />
                       </div>
@@ -264,7 +272,7 @@ export default function ServiceDetail() {
 
             {/* Dot Indicators */}
             <div className="flex justify-center gap-2 mt-8">
-              {Array.from({ length: Math.ceil(clientLogos.length / 4) }).map((_, index) => (
+              {Array.from({ length: Math.ceil(clientLogos.length / 3) }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentLogoSlide(index)}
