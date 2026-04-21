@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronLeft, MapPin, Calendar, DollarSign, CheckCircle, ChevronRight } from "lucide-react";
+import { ChevronLeft, MapPin, Calendar, DollarSign, CheckCircle, ChevronRight, ChevronUp } from "lucide-react";
 import { useRoute } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface ProjectData {
   id: string;
@@ -166,6 +166,19 @@ function ImageGallerySlider({ images }: { images: string[] }) {
 
 export default function ProjectDetail() {
   const [match, params] = useRoute("/project/:id");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   if (!match) return null;
 
@@ -308,6 +321,52 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-[#111111] text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h4 className="font-bold mb-4">About Technyat</h4>
+              <p className="text-gray-400 text-sm">Leading epoxy flooring specialist in Egypt with 20+ years of experience.</p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Services</h4>
+              <ul className="text-gray-400 text-sm space-y-2">
+                <li><a href="#" className="hover:text-[#dd5126]">Industrial Flooring</a></li>
+                <li><a href="#" className="hover:text-[#dd5126]">Commercial Systems</a></li>
+                <li><a href="#" className="hover:text-[#dd5126]">Residential Solutions</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Contact</h4>
+              <p className="text-gray-400 text-sm">Email: info@technyat.com</p>
+              <p className="text-gray-400 text-sm">Phone: +20 (0) 123 456 789</p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Follow Us</h4>
+              <div className="flex gap-4 text-gray-400">
+                <a href="#" className="hover:text-[#dd5126]">Facebook</a>
+                <a href="#" className="hover:text-[#dd5126]">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2026 Technyat Solutions. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-[#dd5126] text-white p-3 rounded-full hover:bg-[#c94620] transition-all duration-300 shadow-lg hover:scale-110 z-50"
+        >
+          <ChevronUp className="w-6 h-6" />
+        </button>
+      )}
     </div>
   );
 }
+
